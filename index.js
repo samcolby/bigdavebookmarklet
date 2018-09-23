@@ -18,10 +18,6 @@ const arrReplaceRegexs = clues.map( (clue) => new RegExp( '\\b' + clue.trim(), "
 
 const createAnchors = () => {
 
-    const entries = document.getElementsByClassName("entry-content");
-
-    const pTags = entries[0].getElementsByTagName("p");
-
     const getClueNo = (text) => text.substring(0,3).replace(/\s/g, " ");
 
     const insertAnchor = (tag, clueNo) => {
@@ -40,13 +36,13 @@ const createAnchors = () => {
         }
     };
 
+    const entries = document.getElementsByClassName("entry-content");
+    const pTags = entries[0].getElementsByTagName("p");
     Array.from(pTags).map(insertAnchorsToClues);
 
 };
 
 const createLinks = () => {
-
-    const comments = document.getElementsByClassName("comment-text");
 
     const anchorExists = (idx) => document.getElementById( arrAnchorIds[idx] );
 
@@ -60,6 +56,7 @@ const createLinks = () => {
         tag.innerHTML = html;
     };
 
+    const comments = document.getElementsByClassName("comment-text");
     Array.from(comments).map(replaceCommentedCluesWithLinks);
 
 };
