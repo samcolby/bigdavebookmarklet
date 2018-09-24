@@ -29,8 +29,8 @@ const createAnchors = () => {
     };
 
     const insertAnchorsToClues = (tag, i) => {
-        html = tag.innerText.trim();
-        clueNo = getClueNo( html );
+        const html = tag.innerText.trim();
+        const clueNo = getClueNo( html );
         if ( clueNo && clues.includes( clueNo ) ) {
             insertAnchor(tag, clueNo);
         }
@@ -47,7 +47,7 @@ const createLinks = () => {
     const anchorExists = (idx) => document.getElementById( arrAnchorIds[idx] );
 
     const replaceCommentedCluesWithLinks = (tag, i) => {
-        html = tag.innerHTML;
+        let html = tag.innerHTML;
         for ( i = 0; i < clues.length; i++ ) {
             if ( anchorExists(i) ) {
                 html = html.replace( arrReplaceRegexs[i], ' <a href="#' + arrAnchorIds[i] + '" title="Goto to clue definition">' + clues[i].trim() + '</a>');
