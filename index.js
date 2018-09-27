@@ -56,7 +56,7 @@ const createLinks = () => {
         tag.innerHTML = html;
     };
 
-    const comments = document.getElementsByClassName("comment-text");
+    const comments = document.querySelectorAll(".comment-text, .comment-content");
     Array.from(comments).map(replaceCommentedCluesWithLinks);
 
 };
